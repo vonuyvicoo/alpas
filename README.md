@@ -40,8 +40,9 @@ ________________________
 ## Areas for Improvement
 ________________________
 
-- Optimize printing by using a buffer and printing the buffer as string
-- Add compatibility to Windows
+- Optimize printing by using a buffer and printing the buffer as string ✅
+- Add compatibility to Windows ✅
+- Improve rendering for Mac (what's funny is that it used to be faster in Mac, but now it's faster in windows)
 
 ## License
 ________________________

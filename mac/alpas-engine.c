@@ -14,6 +14,7 @@ December 6, 2024
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
 
 // CONSTANTS
 #define WIDTH 100
@@ -41,36 +42,55 @@ void clearScreen(char screen[HEIGHT][WIDTH]) {
         }
     }
 }
-
 // Render Screen based on fillChar stored on Object3
 // Associate ANSI codes with fillChar value
 void renderScreen(char screen[HEIGHT][WIDTH]) {
+   // printf("\033[?25l");
+    // Estimate maximum size needed, accounting for ANSI codes and newlines
+    int max_buffer_size = (HEIGHT * WIDTH * 15) + HEIGHT + 1; // 15 to account for color codes and characters
+    char *buffer = (char *)malloc(max_buffer_size);
+    if (buffer == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return;
+    }
+
+    int ctr = 0;
+
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {
             if (screen[y][x] == 'C') {
-                printf("\033[1;32m%c\033[0m", '*'); 
-            }
-            else if(screen[y][x] == 'P'){
-                printf("\033[1;35m%c\033[0m", '*'); 
-            } 
-            else if(screen[y][x] == 'R'){
-                printf("\033[1;34m%c\033[0m", '*'); 
-            } 
-            else if(screen[y][x] == 'F'){
-                printf("\033[1;36m%c\033[0m", '*'); 
-            } 
-            else if(screen[y][x] == 'O'){
-                printf("\033[1;31m%c\033[0m", '*'); 
-            } 
-            else {
-                printf("\033[1;30m%c\033[0m", screen[y][x]); 
-                //putchar(screen[y][x]);
+                strncpy(buffer + ctr, "\033[1;32m*\033[0m", 11);
+                ctr += 11;
+            } else if (screen[y][x] == 'P') {
+                strncpy(buffer + ctr, "\033[1;35m*\033[0m", 11);
+                ctr += 11;
+            } else if (screen[y][x] == 'R') {
+                strncpy(buffer + ctr, "\033[1;34m*\033[0m", 11);
+                ctr += 11;
+            } else if (screen[y][x] == 'F') {
+                strncpy(buffer + ctr, "\033[1;36m*\033[0m", 11);
+                ctr += 11;
+            } else if (screen[y][x] == 'O') {
+                strncpy(buffer + ctr, "\033[1;31m*\033[0m", 11);
+                ctr += 11;
+            } else {
+                strncpy(buffer + ctr, "\033[1;30m", 7);
+                ctr += 7;
+                buffer[ctr++] = screen[y][x];
+                strncpy(buffer + ctr, "\033[0m", 4);
+                ctr += 4;
             }
         }
-        putchar('\n');
+        buffer[ctr++] = '\n';
     }
-}
 
+    buffer[ctr] = '\0';  // Null-terminate the string
+
+    printf("%s", buffer);  // Print the entire buffer at once
+
+    free(buffer);  // Free the allocated memory
+   // printf("\033[?25h");
+}
 // Applies camera tilt based on rotation matrix
 Vec3 applyCameraTilt(Vec3 point, float pitch) {
     Vec3 result;
