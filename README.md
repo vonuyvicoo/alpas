@@ -11,7 +11,7 @@ ________________________
 
 For Mac, navigate to the mac folder and run the following command:
 ```sh
-$ rm alpas-main & rm alpas-keybinder & rm alpas-engine & make alpas-main && ./alpas-main
+rm alpas-main & rm alpas-keybinder & rm alpas-engine & make alpas-main && ./alpas-main
 ```
 
 On Windows, navigate to the windows folder and compile `alpas-main.c` on any designated compiler.
@@ -21,7 +21,7 @@ ________________________
 
 For Mac, run the compiled binary by running:
 ```sh
-$ ./alpas-main
+./alpas-main
 ```
 
 For Windows, launch `alpas-main.exe`.
