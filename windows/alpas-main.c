@@ -86,7 +86,7 @@ void clrscr()
 void mainMenu();
 void winningMenu();
 void gameOver();
-void cprintf(const char *format, ...) ;
+void xprintc(const char *format, ...) ;
 int randomNumber(int, int);
 void calculateAABB(Object3D obj, Vec3 *min, Vec3 *max);
 int collision(Object3D car, Object3D block);
@@ -605,10 +605,10 @@ int game(){
         renderScreen(screen);
 
         // Display controls
-        cprintf("\033[0;32mScore: %d\033[0m", score);
-        cprintf("\033[0;33mLevel: %d\033[0m", (score / 4) + 1);
+        xprintc("\033[0;32mScore: %d\033[0m", score);
+        xprintc("\033[0;33mLevel: %d\033[0m", (score / 4) + 1);
 
-        cprintf("[a] - left   [d] - right    [w] - forward    [s] - back    [q] - quit");
+        xprintc("[a] - left   [d] - right    [w] - forward    [s] - back    [q] - quit");
 
         // own getch to handle multiple cases
         char input = mygetch();
@@ -666,7 +666,7 @@ int game(){
 }
 
 // Custom function for centering text
-void cprintf(const char *format, ...) {
+void xprintc(const char *format, ...) {
     char buffer[1024];
     va_list args;
 
@@ -701,19 +701,19 @@ void clearTerminal(){
 void gameOver(){
     clearTerminal();
     printf("\n\n\n\n\n\n");
-     cprintf("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
-    cprintf("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
-    cprintf("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
-    cprintf("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
-    cprintf("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
-    cprintf("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
-    cprintf("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
-    cprintf("\033[0;36m                                                 \\|_________|\033[0m");
+     xprintc("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
+    xprintc("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
+    xprintc("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
+    xprintc("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
+    xprintc("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
+    xprintc("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
+    xprintc("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
+    xprintc("\033[0;36m                                                 \\|_________|\033[0m");
     printf("\n");
-    cprintf("Game over... Perhaps losing gives meaning to life?");
-    cprintf("Do you really believe this is an endless game?");
+    xprintc("Game over... Perhaps losing gives meaning to life?");
+    xprintc("Do you really believe this is an endless game?");
     printf("\n\n\n\n\n");
-    cprintf("[r] Restart      [x] Exit     [M] Menu");
+    xprintc("[r] Restart      [x] Exit     [M] Menu");
     printf("\n\n\n");
     char choice;
     getchar();
@@ -743,26 +743,26 @@ void winningMenu(){
 
     clearTerminal();
     printf("\n\n\n\n\n\n");
-    cprintf("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
-    cprintf("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
-    cprintf("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
-    cprintf("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
-    cprintf("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
-    cprintf("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
-    cprintf("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
-    cprintf("\033[0;36m                                                 \\|_________|\033[0m");
+    xprintc("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
+    xprintc("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
+    xprintc("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
+    xprintc("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
+    xprintc("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
+    xprintc("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
+    xprintc("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
+    xprintc("\033[0;36m                                                 \\|_________|\033[0m");
     printf("\n");
-    cprintf("\033[0;32m       Congratulations, you win!\033[0m");
+    xprintc("\033[0;32m       Congratulations, you win!\033[0m");
 
     printf("\n");
-    cprintf("You see, thinking outside the box allow us to overcome");
-    cprintf("what may seem like an endless obstacle of life — but now what?");
-    cprintf("__________________________");
+    xprintc("You see, thinking outside the box allow us to overcome");
+    xprintc("what may seem like an endless obstacle of life — but now what?");
+    xprintc("__________________________");
     printf("\n");
-    cprintf("\033[0;35m       The thrill of chasing victory fades when the pursuit becomes routine.\033[0m");
-    cprintf("\033[0;35m       Winning without meaning can turn triumph into monotony.\033[0m");
+    xprintc("\033[0;35m       The thrill of chasing victory fades when the pursuit becomes routine.\033[0m");
+    xprintc("\033[0;35m       Winning without meaning can turn triumph into monotony.\033[0m");
     printf("\n\n\n\n\n");
-    cprintf("[x] Exit     [M] Menu");
+    xprintc("[x] Exit     [M] Menu");
     printf("\n\n\n");
     char choice;
     getchar();
@@ -791,20 +791,20 @@ void winningMenu(){
 void mainMenu(){
     clearTerminal();
     printf("\n\n\n\n\n\n");
-    cprintf("Welcome to");
-    cprintf("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
-    cprintf("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
-    cprintf("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
-    cprintf("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
-    cprintf("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
-    cprintf("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
-    cprintf("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
-    cprintf("\033[0;36m                                                 \\|_________|\033[0m");
+    xprintc("Welcome to");
+    xprintc("\033[0;36m       ________  ___       ________  ________  ________      \033[0m");
+    xprintc("\033[0;36m      |\\   __  \\|\\  \\     |\\   __  \\|\\   __  \\|\\   ____\\     \033[0m");
+    xprintc("\033[0;36m      \\ \\  \\|\\  \\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\___|_    \033[0m");
+    xprintc("\033[0;36m       \\ \\   __  \\ \\  \\    \\ \\   ____\\ \\   __  \\ \\_____  \\   \033[0m");
+    xprintc("\033[0;36m        \\ \\  \\ \\  \\ \\  \\____\\ \\  \\___|\\ \\  \\ \\  \\|____|\\  \\  \033[0m");
+    xprintc("\033[0;36m         \\ \\__\\ \\__\\ \\_______\\ \\_\\    \\ \\__\\ \\__\\____\\_\\  \\ \033[0m");
+    xprintc("\033[0;36m          \\|__|\\|__|\\|_______|\\|__|     \\|__|\\|__|\\_________\\\033[0m");
+    xprintc("\033[0;36m                                                 \\|_________|\033[0m");
     printf("\n");
-    cprintf("Your console has been initialized to suggested size.");
-    cprintf("If graphics are weird, set fullscreen and zoom out. (Windows Limitation)");
+    xprintc("Your console has been initialized to suggested size.");
+    xprintc("If graphics are weird, set fullscreen and zoom out. (Windows Limitation)");
     printf("\n\n\n\n\n");
-    cprintf("[s] Start      [x] Exit     ");
+    xprintc("[s] Start      [x] Exit     ");
     printf("\n\n\n");
     char choice;
     printf("Enter choice: ");
