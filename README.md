@@ -1,5 +1,5 @@
 # ALPAS - to break free. 3D Terminal Game for Mac/Windows
-Built for CMSC11 class requirement. 3D Rendering is done using mainly linear algebra and trigonometric derivations. Read full process [here][https://raw.githubusercontent.com/vonuyvicoo/alpas/main/ALPAS%20MAIN%20DOCUMENTATION.pdf]
+Built for CMSC11 class requirement. 3D Rendering is done using mainly linear algebra and trigonometric derivations. Read full process [here](https://raw.githubusercontent.com/vonuyvicoo/alpas/main/ALPAS%20MAIN%20DOCUMENTATION.pdf).
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Static Badge](https://img.shields.io/badge/C_Programming_Language-blue)
