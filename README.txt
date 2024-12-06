@@ -31,9 +31,11 @@ windows - Windows Files
 	|- alpas-engine.c (Rendering math helper functions)
 	|- alpas-keybinder.c (For binding keystrokes to game)
 	|- alpas-main.c (Game logic, everything)
+	|- alpas-main.exe (Main binary, in the case some libraries aren't supported on user end)
 
 
 mac - Mac Files
 	|- alpas-engine.c (Rendering math helper functions)
 	|- alpas-keybinder.c (For binding keystrokes to game)
 	|- alpas-main.c (Game logic, everything)
+	|- alpas-main (Mac binary)
